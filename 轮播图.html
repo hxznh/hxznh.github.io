@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>zjz 浏览器轮播图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        img{
+            width: 100%;
+        }
+        .zjz-thumbnail img{
+            width: auto;
+        }
+        .zjz-threeC{
+            margin-top:50px ;
+        }
+        .zjz-hr{
+            margin: 50px auto;
+        }
+        .zjz-hr > hr{
+            border:1px solid deeppink;
+        }
+
+
+        .zjz-carousel{
+            margin-top: 50px;
+        }
+        .zjz-carousel,.zjz-carousel  .item{
+            height: 500px;
+            overflow: hidden;
+        }
+        .carousel-caption{
+            bottom: 50%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .carousel-caption{
+                bottom: 5%;
+            }
+            .zjz-carousel,.zjz-carousel  .item{
+                height: 200px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <!--导航-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">浏览器</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">综述 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">简述</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特点 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="zjz-nav">
+                            <li><a href="#chrome">Chrome</a></li>
+                            <li><a href="#firefox">Firefox</a></li>
+                            <li><a href="#safari">Safari</a></li>
+                            <li><a href="#opera">Opeara</a></li>
+                            <li><a href="#ie">IE</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:" data-target="#myModal" data-toggle="modal">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--轮播-->
+<div id="carousel-example-generic" class="carousel slide zjz-carousel" data-ride="carousel" data-interval="1000">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="imgs/chrome-big.jpg" >
+            <div class="carousel-caption">
+                <h2>chrome</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="imgs/firefox-big.jpg" >
+            <div class="carousel-caption">
+                <h2>firefox</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="imgs/safari-big.jpg" >
+            <div class="carousel-caption">
+                <h2>safari</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="imgs/opera-big.jpg" >
+            <div class="carousel-caption">
+                <h2>opera</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="imgs/ie-big.jpg" >
+            <div class="carousel-caption">
+                <h2>ie</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!--三列布局-->
+<div class="container zjz-threeC">
+    <div class="row">
+        <div class="col-md-4 zjz-thumbnail text-center">
+            <img src="imgs/chrome-logo-small.jpg">
+            <div class="caption">
+                <h3>chrome</h3>
+                <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+                <p>
+                    <a href="https://www.google.cn/chrome//" class="btn btn-default" role="button" target="_blank">Chorme 官网</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4 zjz-thumbnail text-center">
+            <img src="imgs/firefox-logo-small.jpg">
+            <div class="caption">
+                <h3>firefox</h3>
+                <p>Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”，是一个开源网页浏览器。</p>
+                <a href="http://www.firefox.com.cn/" class="btn btn-default" role="button" target="_blank">Firefox 官网</a>
+            </div>
+        </div>
+        <div class="col-md-4 zjz-thumbnail text-center">
+            <img src="imgs/safari-logo-small.jpg">
+            <div class="caption">
+                <h3>safari</h3>
+                <p>Safari，是苹果计算机的最新操作系统Mac OS X中的浏览器。</p>
+                <p><a href="https://www.apple.com.cn/safari/" class="btn btn-default" role="button" target="_blank">Safari 官网</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--线-->
+<div class="container zjz-hr">
+    <hr />
+</div>
+<!--标签页-->
+<div class="container" id="zjz-tab">
+    <ul class="nav nav-tabs" role="tablist" id="zjz-list">
+        <li role="presentation" class="active"><a href="#chrome" aria-controls="chrome" role="tab" data-toggle="tab">chrome</a></li>
+        <li role="presentation"><a href="#firefox" aria-controls="firefox" role="tab" data-toggle="tab">firefox</a></li>
+        <li role="presentation"><a href="#safari" aria-controls="safari" role="tab" data-toggle="tab">safari</a></li>
+        <li role="presentation"><a href="#opera" aria-controls="opera" role="tab" data-toggle="tab">opera</a></li>
+        <li role="presentation"><a href="#ie" aria-controls="ie" role="tab" data-toggle="tab">ie</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="chrome">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>chrome</h3>
+                        <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="imgs/chrome-logo.jpg"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="firefox">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="imgs/firefox-logo.jpg"  />
+                    </div>
+                    <div class="col-md-7">
+                        <h3>firefox</h3>
+                        Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”，是一个开源网页浏览器。。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="safari">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>safari</h3>
+                        <p>Safari，是苹果计算机的最新操作系统Mac OS X中的浏览器。</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="imgs/safari-logo.jpg"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="opera">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="imgs/opera-logo.jpg"  />
+                    </div>
+                    <div class="col-md-7">
+                        <h3>Opera浏览器</h3>
+                        是一款挪威Opera Software ASA公司制作的支持多页面标签式浏览的网络浏览器，是跨平台浏览器可以在Windows、Mac和Linux三个操作系统平台上运行。Opera浏览器创始于1995年4月。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="ie">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>IE 已经被弃用了</h3>
+                        Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10版本)， 简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。
+                    </div>
+                    <div class="col-md-5">
+                        <img src="imgs/ie-logo.jpg"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    &copy;zjz
+</div>
+
+<!--模态框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">模态框</h4>
+            </div>
+            <div class="modal-body">
+                <p>郑俊锃 重庆交通大学 信息科学与工程学院 曙光2001班</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
