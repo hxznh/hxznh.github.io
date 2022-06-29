@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            background: url("resources/imgs/秒速5cm.jpeg") no-repeat center 0;
+            background-size: 100%;
+        }
+
+        .rg_layout {
+            width: 900px;
+            height: 500px;
+            border: 3px solid #EEEEEE;
+            background-color: #FFFFFF;
+            /* 水平居中 */
+            margin: auto;
+            margin-top: 35px;
+        }
+
+        .rg_left{
+            /*border: 1px solid red;*/
+            float: left;
+            margin: 15px;
+        }
+
+        .rg_center{
+            /*border: 1px solid red;*/
+            padding-top: 20px;
+            padding-left: 50px;
+            float: left;
+            width: 550px;
+        }
+
+        .rg_right{
+            /*border: 1px solid red;*/
+            float: right;
+            margin: 15px;
+        }
+
+        .rg_right > p:first-child{
+            font-size: 10px;
+        }
+
+        .rg_right p a{
+            color: deeppink;
+        }
+
+        #rg_left_p1{
+            color: #FFAF26;
+            font-size: 20px;
+        }
+
+        #rg_left_p2{
+            color: #A6A6A6;
+            font-size: 20px;
+        }
+
+        .td_left{
+            margin-left: 80px;
+            width: 100px;
+            height: 40px;
+            text-align: right;
+        }
+
+        .td_right{
+            padding-left: 20px ;
+        }
+
+        #username, #password, #Email, #birthday, #telNum,  #name {
+            width: 250px;
+            height: 25px;
+            padding-left: 10px;
+            border: 1px solid #A6A6A6;
+            /* 设置边框圆角 */
+            border-radius: 5px;
+        }
+
+        #checkCode {
+            width: 150px;
+            height: 30px;
+            padding-left: 10px;
+            border: 1px solid #A6A6A6;
+            /* 设置边框圆角 */
+            border-radius: 5px;
+        }
+
+        #checkCodeImg {
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        #submitBtn {
+            margin-left: 150px;
+            width: 150px;
+            background-color: #FFAF26;
+            border: 1px solid #FFAF26;
+        }
+
+        .error {
+            color: red;
+            font-size: 10px;
+        }
+
+        #checkImg {
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+
+    <script>
+        /*
+            给表单加一个 onsubmit 事件
+                在监听器中检查每个校验结果
+            分别校验各个表单项
+            给各个表单绑定 onblur 事件
+         */
+
+        window.onload = function () {
+            document.getElementById("form").onsubmit = function () {
+                // 检查 用户名 密码 是否都符合规则
+                return checkUsername() && checkPassword();
+            }
+
+            document.getElementById("username").onblur = checkUsername;
+
+            document.getElementById("password").onblur = checkPassword;
+        }
+
+        function checkUsername() {
+            // 获取值
+            var username = document.getElementById("username").value;
+            // 创建正则
+            var reg_username = /^\w{6,12}$/;
+            // 校验
+            var flag = reg_username.test(username);
+            var tip_username = document.getElementById("tip_username");
+            // 输出提示信息
+            if (flag) {
+                tip_username.innerHTML = "<img src='imgs/check.png' id='checkImg'>";
+            } else {
+                tip_username.className = "error";
+                tip_username.innerHTML = "用户名格式错误！";
+            }
+
+            return flag;
+        }
+
+        function checkPassword() {
+            // 获取值
+            var password = document.getElementById("password").value;
+            // 创建正则
+            var reg_password = /^\w{6,12}$/;
+            // 校验
+            var flag = reg_password.test(password);
+            var tip_password = document.getElementById("tip_password");
+            // 输出提示信息
+            if (flag) {
+                tip_password.innerHTML = "<img src='imgs/check.png' id='checkImg'>";
+            } else {
+                tip_password.className = "error";
+                tip_password.innerHTML = "密码格式错误！";
+            }
+
+            return flag;
+        }
+
+    </script>
+
+</head>
+<body>
+
+<div class="rg_layout">
+    <div class="rg_left">
+        <p id="rg_left_p1">新用户注册</p>
+        <p id="rg_left_p2">User Register</p>
+    </div>
+
+    <div class="rg_center">
+        <div class="rg_form">
+            <form action="#" method="get" id="form">
+                <!-- 表格 9行 2列 -->
+                <table>
+                    <tr>
+                        <td class="td_left"><label for="username"> 用户名 </label></td>
+                        <td class="td_right"><input type="text" placeholder="请输入用户名" name="username" id="username"></td>
+                        <td><span id="tip_username" class="error"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label for="password"> 密码 </label></td>
+                        <td class="td_right"><input type="password" placeholder="请输入密码" name="password" id="password"></td>
+                        <td><span id="tip_password" class="error"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label for="Email"> Email </label></td>
+                        <td class="td_right"><input type="email" placeholder="请输入Email" name="Email" id="Email"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label for="name"> 姓名 </label></td>
+                        <td class="td_right"><input type="text" placeholder="请输入姓名" name="name" id="name"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label for="telNum"> 手机号 </label></td>
+                        <td class="td_right"><input type="number" placeholder="请输入手机号" name="telNum" id="telNum"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label>性别</label></td>
+                        <td class="td_right">
+                            <input type="radio" name="gender" value="male"> 男
+                            <input type="radio" name="gender" value="female"> 女
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label for="birthday">出生日期</label></td>
+                        <td class="td_right"><input type="date" name="birthday" id="birthday"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label for="checkCode">验证码</label></td>
+                        <td class="td_right">
+                            <input type="text" name="check" id="checkCode" placeholder="请输入验证码">
+                            <img id="checkCodeImg" src="images/checkNum.png">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><input type="submit" value="注册" id="submitBtn"></td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div class="rg_right">
+        <p>已有账号？ <a href="#">立即登录</a></p>
+    </div>
+</div>
+</body>
+</html>
