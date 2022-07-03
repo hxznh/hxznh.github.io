@@ -146,7 +146,7 @@
             var tip_username = document.getElementById("tip_username");
             // 输出提示信息
             if (flag) {
-                tip_username.innerHTML = "<img src='imgs/check.png' id='checkImg'>";
+                tip_username.innerHTML = "<img src='/resources/imgs/check.png' id='checkImg'>";
             } else {
                 tip_username.className = "error";
                 tip_username.innerHTML = "用户名格式错误！";
@@ -165,7 +165,7 @@
             var tip_password = document.getElementById("tip_password");
             // 输出提示信息
             if (flag) {
-                tip_password.innerHTML = "<img src='imgs/check.png' id='checkImg'>";
+                tip_password.innerHTML = "<img src='/resources/imgs/check.png' id='checkImg'>";
             } else {
                 tip_password.className = "error";
                 tip_password.innerHTML = "密码格式错误！";
@@ -234,7 +234,7 @@
                         <td class="td_left"><label for="checkCode">验证码</label></td>
                         <td class="td_right">
                             <input type="text" name="check" id="checkCode" placeholder="请输入验证码">
-                            <img id="checkCodeImg" src="images/checkNum.png">
+                            <img id="checkCodeImg" src="resources/imgs/checkNum.png">
                         </td>
                     </tr>
 
